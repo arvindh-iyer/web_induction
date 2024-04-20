@@ -16,7 +16,7 @@ export const DashBoard = () => {
   useEffect(() => {
     (async () => {
       let l = await fetch(
-        `${process.env.REACT_APP_BACKEND}/mainpage/dashboard`,
+        `${process.env.REACT_APP_BACKEND}mainpage/dashboard`,
         {
           method: "get",
         }

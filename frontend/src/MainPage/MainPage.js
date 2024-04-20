@@ -31,7 +31,7 @@ export const MainPage = () => {
   useEffect(() => {
     (async () => {
       let name = await fetch(
-        `${process.env.REACT_APP_BACKEND}/mainpage/verifyJwt`,
+        `${process.env.REACT_APP_BACKEND}mainpage/verifyJwt`,
         {
           method: "post",
           body: JSON.stringify({ token }),

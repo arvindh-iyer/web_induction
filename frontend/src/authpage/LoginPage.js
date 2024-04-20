@@ -20,7 +20,7 @@ export const LoginPage = () => {
       setOpenPassword(true);
       return;
     }
-    let ans = await fetch(`${process.env.REACT_APP_BACKEND}/authpage/login`, {
+    let ans = await fetch(`${process.env.REACT_APP_BACKEND}authpage/login`, {
       method: "post",
       body: JSON.stringify({ email, password }),
       headers: {

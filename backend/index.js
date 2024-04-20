@@ -6,9 +6,16 @@ const cors = require("cors");
 const auth_routes = require("./authentication/auth_routes");
 const main_routes = require("./main_routes/main_routes");
 const { config } = require("dotenv");
-config();
-app.use(cors());
+
 app.use(express.json());
+config();
+var corsOptions = {
+  origin: "*",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  credentials: true,
+};
+app.use(cors(corsOptions));
+
 db_connect();
 
 app.use("/authpage", auth_routes);

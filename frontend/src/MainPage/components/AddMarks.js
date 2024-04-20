@@ -72,7 +72,7 @@ export const AddMarks = () => {
   async function submit() {
     console.log(marks);
     let l = await fetch(
-      `${process.env.REACT_APP_BACKEND}/mainpage/updateMarks`,
+      `${process.env.REACT_APP_BACKEND}mainpage/updateMarks`,
       {
         method: "post",
         body: JSON.stringify({
@@ -94,23 +94,20 @@ export const AddMarks = () => {
 
   async function searchMarks() {
     //console.log(`student is ${selectedStudent} and subject is ${selectedSubject} `)
-    let x = await fetch(
-      `${process.env.REACT_APP_BACKEND}/mainpage/fetchMarks`,
-      {
-        method: "post",
-        body: JSON.stringify({
-          student: selectedStudent,
-          subject: selectedSubject,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    let x = await fetch(`${process.env.REACT_APP_BACKEND}mainpage/fetchMarks`, {
+      method: "post",
+      body: JSON.stringify({
+        student: selectedStudent,
+        subject: selectedSubject,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     x = await x.json();
 
     let l = await fetch(
-      `${process.env.REACT_APP_BACKEND}/mainpage/studentMarks`,
+      `${process.env.REACT_APP_BACKEND}mainpage/studentMarks`,
       {
         method: "post",
         body: JSON.stringify({ student: selectedStudent }),
@@ -130,7 +127,7 @@ export const AddMarks = () => {
   useEffect(() => {
     (async () => {
       let l = await fetch(
-        `${process.env.REACT_APP_BACKEND}/mainpage/displaySubjects`,
+        `${process.env.REACT_APP_BACKEND}mainpage/displaySubjects`,
         {
           method: "get",
         }
@@ -138,7 +135,7 @@ export const AddMarks = () => {
       l = await l.json();
 
       let m = await fetch(
-        `${process.env.REACT_APP_BACKEND}/mainpage/displayStudents`,
+        `${process.env.REACT_APP_BACKEND}mainpage/displayStudents`,
         {
           method: "get",
         }

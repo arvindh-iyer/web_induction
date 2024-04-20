@@ -19,7 +19,7 @@ export const AddSubject = () => {
 
   async function handleSubmit() {
     let res = await fetch(
-      `${process.env.REACT_APP_BACKEND}/mainpage/addNewSubject`,
+      `${process.env.REACT_APP_BACKEND}mainpage/addNewSubject`,
       {
         method: "post",
         body: JSON.stringify({ sub_code, sub_name }),

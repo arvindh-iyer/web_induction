@@ -21,7 +21,7 @@ export const AddStudent = () => {
 
   async function handleSubmit() {
     let res = await fetch(
-      `${process.env.REACT_APP_BACKEND}/mainpage/addNewStudent`,
+      `${process.env.REACT_APP_BACKEND}mainpage/addNewStudent`,
       {
         method: "post",
         body: JSON.stringify({ name, batch, regno, semester }),

@@ -11,7 +11,7 @@ export const SignupPage = () => {
   const navigate = useNavigate();
 
   async function submitSignup() {
-    let ans = await fetch(`${process.env.REACT_APP_BACKEND}/authpage/signup`, {
+    let ans = await fetch(`${process.env.REACT_APP_BACKEND}authpage/signup`, {
       method: "post",
       body: JSON.stringify({ name, email, password }),
       headers: {
