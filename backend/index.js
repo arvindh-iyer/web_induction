@@ -7,14 +7,6 @@ const auth_routes = require("./authentication/auth_routes");
 const main_routes = require("./main_routes/main_routes");
 const { config } = require("dotenv");
 
-app.use(express.json());
-config();
-var corsOptions = {
-  origin: "*",
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-  credentials: true,
-};
-app.use(cors(corsOptions));
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", process.env.CLIENT_URL);
   res.setHeader(
@@ -25,6 +17,9 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Credentials", "true");
   next();
 });
+
+app.use(express.json());
+config();
 
 db_connect();
 
