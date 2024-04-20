@@ -7,7 +7,7 @@ const auth_routes = require("./authentication/auth_routes");
 const main_routes = require("./main_routes/main_routes");
 const { config } = require("dotenv");
 config();
-app.use(cors());
+app.use(cors({origin: 'http://localhost:3000'}));
 app.use(express.json());
 db_connect();
 
