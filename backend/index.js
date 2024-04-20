@@ -7,16 +7,7 @@ const auth_routes = require("./authentication/auth_routes");
 const main_routes = require("./main_routes/main_routes");
 const { config } = require("dotenv");
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", process.env.CLIENT_URL);
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, PATCH, DELETE"
-  );
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  next();
-});
+app.use(cors());
 
 app.use(express.json());
 config();
